@@ -17,4 +17,4 @@ override.tf.json
 .terraformrc
 terraform.rc  - игнорирование конфигурационных файлов.
 
-
+# первое изменение 
