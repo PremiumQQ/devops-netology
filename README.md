@@ -1,18 +1,59 @@
+5) RAM:1024mb  
+CPU:1 cpu  
+HDD:64gb  
+video:8mb  
+6) В файле конфигурации добавить 2 строки:  
+config.vm.provider "virtualbox" do |vb|  
+     vb.memory = "2048"  
+     vb.cpu = "4"  
+   end  
+8) Какой переменной можно задать длину журнала history, и на какой строчке manual это описывается?  
+HISTSIZE - влияет на количество команд которые записываюся в истории - строка 630  
+HISTFILESIZE - влияет на количество строк записываемых в историю - строка 621  
 
-1) Полный хэш: aefead2207ef7e2aa5dc81a34aedf0cad4c32545
-Коммент: Update CHANGELOG.md
-2) tag: v0.12.23
-3) Merge: 56cd7859e 9ea88f22f
-4) 33ff1c03bb960b332be3af2e333462dde88b279e (tag: v0.12.24) v0.12.24
-b14b74c4939dcab573326f4e3ee2a62e23e12f89 [Website] vmc provider links
-3f235065b9347a758efadc92295b540ee0a5e26e Update CHANGELOG.md
-6ae64e247b332925b872447e9ce869657281c2bf registry: Fix panic when server is unreachable
-5c619ca1baf2e21a155fcdb4c264cc9e24a2a353 website: Remove links to the getting started guide's old location
-06275647e2b53d97d4f0a19a0fec11f6d69820b5 Update CHANGELOG.md
-d5f9411f5108260320064349b757f55c09bc4b80 command: Fix bug when using terraform login on Windows
-4b6d06cc5dcb78af637bbb19c198faff37a066ed Update CHANGELOG.md
-dd01a35078f040ca984cdd349f18d0b67e486c35 Update CHANGELOG.md
-225466bc3e5f35baa5d07197bbc079345b77525e Cleanup after v0.12.23 release
-5) 8c928e83589d90a031f811fae52a81be7153e82f
-6) 8364383c359a6b738a436d1b7745ccdce178df47  (она не менялась, просто создалась)
-7) Такой функции нет.
+Значение ignoreboth является сокращением для ignorespace и ignoredups.   
+ignorespace - если строка начинается с пробела, она не сохраняется в истории  
+ignoredups - если строка дублируется (соответсвует предыдущей записи), она не сохраняется в истории  
+
+9) Используется в списках (строка 206), зарезервированных словах (139 строка)   
+10) touch {000001..100000}.txt - создало в директории 100.000 файлов  
+на 300.000 файлов вышла ошибка Argument list too long  
+11) Возвращает статус 0 или 1 на условие [[ -d /tmp ]]. Если /tmp есть, вернется 1. Если нет, то 0.  
+Правда не понял что делает -d, проверка на наличие директории?  
+12) mkdir /tmp/new_path_dir/  
+cp /bin/bash /tmp/new_path_dir/  
+type -a bash  
+bash is /tmp/new_path_dir/bash  
+bash is /usr/bin/bash  
+bash is /bin/bash  
+Далее я решил перенести в папку local, чтобы соответствовало заданию bash is /usr/local/bin/bash  
+vagrant@vagrant:~$ sudo -i  
+root@vagrant:~# ls -all  
+root@vagrant:~# cd ..  
+root@vagrant:/usr# cd local  
+root@vagrant:/usr/local# ls -all  
+root@vagrant:/usr/local# cd bin  
+root@vagrant:/usr/local/bin# ls -all  
+root@vagrant:/usr/local/bin# cp /bin/bash /usr/local/bin/  
+root@vagrant:/usr/local/bin# type -a bash  
+bash is /tmp/new_path_dir/bash  
+bash is /usr/local/bin/bash  
+bash is /usr/bin/bash  
+bash is /bin/bash  
+На выводе появилась лишняя строчка bash is /usr/bin/bash, следуя заданию, попробовал ее удалить  
+root@vagrant:/bin# rm -r /usr/bin/bash  
+root@vagrant:/bin# type -a bash  
+bash is /tmp/new_path_dir/bash  
+bash is /usr/local/bin/bash  
+Но она удалилась вместе с bash is /bin/bash  
+Восстановил ее  
+root@vagrant:/bin# cp /usr/local/bin/bash /bin/bash  
+root@vagrant:/bin# type -a bash  
+bash is /tmp/new_path_dir/bash  
+bash is /usr/local/bin/bash  
+bash is /usr/bin/bash  
+bash is /bin/bash  
+После этого не стал дальше экспериментировать, т.к. это системные файлы и как я понял, они взаимозаменяемые  
+13)   
+at - команда запускается в указанное время (в параметре)  
+batch - запускается когда уровень загрузки системы снизится ниже 1.5  
