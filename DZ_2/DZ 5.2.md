@@ -32,6 +32,9 @@ Ansible
 
 VirtualBox
 
+```
+Попытался узнать версию через терминал Windows, не одну команду не понимает. 
+```
 ![img.png](img.png)
 
 Vagrant
@@ -41,16 +44,16 @@ Vagrant 2.2.19
 ```
 Ansible
 ```
-vagrant@vagrant:~$ ansible --version
-ansible [core 2.12.1]
+Установил на Windows с помощью Cygwin64
+PremiumQ@PC ~
+$ ansible --version
+ansible 2.8.4
   config file = /etc/ansible/ansible.cfg
-  configured module search path = ['/home/vagrant/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /usr/lib/python3/dist-packages/ansible
-  ansible collection location = /home/vagrant/.ansible/collections:/usr/share/ansible/collections
+  configured module search path = ['/home/PremiumQ/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.7/site-packages/ansible
   executable location = /usr/bin/ansible
-  python version = 3.10.0b1 (default, May 11 2021, 08:45:09) [GCC 10.3.0]
-  jinja version = 2.11.2
-  libyaml = False
+  python version = 3.7.12 (default, Nov 23 2021, 18:58:07) [GCC 11.2.0]
+
 ```
 
 ## Дополнительное задание (со звездочкой*) - необязательно к выполнению
@@ -61,8 +64,5 @@ ansible [core 2.12.1]
 Зайти внутрь ВМ, убедиться, что Docker установлен с помощью команды
 
 ```
-vagrant@vagrant:~$ sudo docker ps
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-vagrant@vagrant:~$ sudo docker -v
-Docker version 20.10.12, build e91ed57
+
 ```

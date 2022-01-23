@@ -26,6 +26,9 @@
 ```python
 import socket
 import time
+import yaml
+import json
+
 
 hosts = {"drive.google.com": {"ipv4": "192.168.1.1"}, "mail.google.com": {
     "ipv4": "192.168.1.2"}, "google.com": {"ipv4": "192.168.1.3"}}
@@ -38,13 +41,13 @@ while True:
                 check_ip = socket.gethostbyname(host)
                 if check_ip != cur_ip:
                     print(f"{{\"{host}\":\"{cur_ip}\"}}")
-                    config_json.write(f"{{\"{host}\":\"{cur_ip}\"}}" + "\n")
-                    config_yaml.write(f"- {host}:{cur_ip}" + "\n")
+                    json.dump({host: cur_ip}, config_json)
+                    yaml.dump([{host:cur_ip}], config_yaml)
                     hosts[host]["ipv4"] = check_ip
                 else:
                     print(f"{{\"{host}\":\"{cur_ip}\"}}")
-                    config_json.write(f"{{\"{host}\":\"{cur_ip}\"}}" + "\n")
-                    config_yaml.write(f"- {host}:{cur_ip}" + "\n")
+                    json.dump({host: cur_ip}, config_json)
+                    yaml.dump([{host:cur_ip}], config_yaml)
         print(f'Цикл {number}-го скрипта завершен.')
         number += 1
         time.sleep(2)
