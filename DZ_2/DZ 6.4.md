@@ -221,3 +221,4 @@ export PGPASSWORD=netology && pg_dump -h localhost -U postgres test_database > /
 ```
 title character varying(80) NOT NULL UNIQUE,
 ```
+
