@@ -12,7 +12,7 @@ vagrant@vagrant:~$ ls -ilh
 total 420K  
 131084 -rwxr-xr-x 1 vagrant vagrant    0 Nov 21 06:18  MUJIK  
 262153 drwxrwxr-x 3 vagrant vagrant 4.0K Nov 16 12:52  node  
-131085 -rw-r--r-- 1 vagrant vagrant  13K Oct 31 10:32 'qqq'$'\033\033'  
+131085 -rw-r--r-- 1 vagrant vagrant  13K Ocыгt 31 10:32 'qqq'$'\033\033'  
 131081 -rw-r--r-- 1 vagrant vagrant 397K Oct 31 10:22  ynchronizedWriters  
   
 Из этого следует вывод, что нет, не могут. Они ссылаются на один и тот же файл, inode одинаковый.   
